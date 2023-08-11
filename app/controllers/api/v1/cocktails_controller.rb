@@ -13,7 +13,21 @@ module Api
         end
       end
 
-      def create; end
+      def create
+        cocktail = Cocktail.new(cocktail_params)
+
+        if cocktail.save
+          render json: { status: 'SUCCESS', message: 'Saved cocktail', data: cocktail }, status: :ok  
+        else
+          render json: { status: 'ERROR', message: 'Cocktail not saved', data: cocktail.errors }, status: :unprocessable_entity 
+        end
+      end
+      
+      private
+
+      def cocktail_params
+        params.require(:cocktail).permit(:name, :image )
+      end
     end
   end
 end
