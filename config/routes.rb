@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do
     namespace :v1 do
-      resources :cocktails
+      resources :cocktails do
+        resources :ingredients, only: %i[index create]
+      end
     end
   end
 end
