@@ -57,8 +57,8 @@ module Api
       private
 
       def cocktail_params
-        params.require(:cocktail).permit(:name, :image).tap do |whitelisted|
-          whitelisted[:name] = params[:cocktail][:name].strip
+        params.require(:cocktail).permit(:name, :image).tap do |element|
+          element[:name] = params[:cocktail][:name].strip.capitalize()
         end
       end
     end

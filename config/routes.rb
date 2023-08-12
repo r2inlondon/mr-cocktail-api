@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :cocktails do
-        resources :ingredients, only: %i[index create]
+        resources :ingredients, only: %i[index create destroy]
       end
     end
   end

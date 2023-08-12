@@ -15,9 +15,20 @@ module Api
       def create
         ingredient = Ingredient.new(ingredient_params)
         if ingredient.save
-            render json: { status: 'SUCCESS', message: 'Saved ingredient', data: ingredient }, status: :ok
+          render json: { status: 'SUCCESS', message: 'Saved ingredient', data: ingredient }, status: :ok
         else
-            render json: { status: 'ERROR', message: 'Ingredient not saved', data: ingredient.errors }, status: :bad_request
+          render json: { status: 'ERROR', message: 'Ingredient not saved', data: ingredient.errors },
+                 status: :bad_request
+        end
+      end
+
+      def destroy
+        ingredient = Ingredient.find(params[:id])
+
+        if ingredient.destroy
+          render json: { status: 'SUCCESS', message: 'Deleted ingredient', data: ingredient }, status: :ok
+        else
+          render json: { status: 'ERROR', message: 'Ingredient not deleted', data: ingredient.errors }
         end
       end
 
