@@ -83,6 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: mr_cocktail_api_production
-  username: mr_cocktail_api
-  password: <%= ENV["MR_COCKTAIL_API_DATABASE_PASSWORD"] %>
+  # database: mr_cocktail_api_production
+  # username: mr_cocktail_api
+  # password: <%= ENV["MR_COCKTAIL_API_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>

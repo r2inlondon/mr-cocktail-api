@@ -75,6 +75,8 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dockerfile-rails (1.5.6)
+      rails
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -153,6 +155,11 @@ GEM
     reline (0.3.7)
       io-console (~> 0.5)
     rufo (0.16.2)
+    sentry-rails (5.11.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.11.0)
+    sentry-ruby (5.11.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     thor (1.2.2)
     timeout (0.4.0)
     tzinfo (2.0.6)
@@ -168,12 +175,15 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  dockerfile-rails (>= 1.5)
   dotenv-rails
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.6)
   rufo
+  sentry-rails (~> 5.11)
+  sentry-ruby (~> 5.11)
   tzinfo-data
 
 RUBY VERSION
